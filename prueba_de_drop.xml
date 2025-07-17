@@ -1,0 +1,13 @@
+<sequence name='Za_Wareduuuuuuuuuuuuu'>
+    <log level='custom' category='INFO'>
+        <property name='Inicio' value='Iniciando prueba del mediador drop' />
+    </log>
+    <log level='custom' category='INFO'>
+        <property name='FIN' value='Acá termina la ejecución' />
+    </log>
+    <!-- El mediador drop detiene toda la ejecución del sistema, sin importar de donde se ejecute, si en in o out -->
+    <drop />
+    <log level='custom' category='ERROR'>
+        <property name='WHAT?' value='Esto no deberia haber pasado este mensaje deberia ser invisible' />
+    </log>
+</sequence>
