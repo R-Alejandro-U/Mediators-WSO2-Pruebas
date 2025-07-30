@@ -1,0 +1,52 @@
+<!-- 
+ 
+    Muy importante este sequence policie esta dividida en dos sequence, una para la request o flujo inSequence, esto quiere decir las reglas o instruciones que vamos a poner desde el inicio de la llamada hasta que llegue al back y el flujo response o outSequence es el que inicia desde la respuesta del back, hasta llegar al front, y hambas secuencias tienen su propio in y out, donde se puede manejar la ogica antes y despues de cer interceptada por el getaway un ejemplo 
+ 
+    inSequence:
+            In              Out
+    FRONT - - - > GetAway - - - > BACK
+
+    outSequence:
+
+            Out               In
+    FRONT < - - - GetAway < - - - BACK
+
+-->
+
+<sequence name='redirection_req'>
+
+    <log level='custom' category='INFO'>
+        <property name='PRUEBA_1' value='Iniciando prueba de redireccion directa.' />
+    </log>
+
+    <!-- 
+        Dentro de esta propiedad 'REST_URL_POSTFIX' es donde se almacena el path de la solicitud original, si no se elimina se concatenara con la peticion de redirección, ejemplo:
+
+        petición original: http://localhost:5000/users
+        petición del send: http://localhost:5000/products/df85b99e-3668-4af2-a1ad-5db3f39c0bec
+        petición recibida: http://localhost:5000/products/df85b99e-3668-4af2-a1ad-5db3f39c0bec/users
+    
+        Puedes probar comententando la propiedad de abajo y chacando los logs, y ver en que path es al que le pega 
+    -->
+
+    <property name="REST_URL_POSTFIX" value="" scope="axis2" action="remove"/>
+
+    <!-- 
+    
+        En el send, es donde inicia el recorrido para la redireccion, y establecemos el o los endpoints con su direccion, y todos los mediadores que se encuentren al cerra el send(<send /> || </ send>) no se ejecutaran ejemplo el log invisible. El mediator send detiene la ejecucion inSequence para hacer la llamada al nuevo endpoint llamado y devolver su resultado en la outSequence.
+    
+        Importante, esta secuencia debe ejecutar se siempre en un inSequence o haremos llamadas infinitas al enspoint. PD: Habla la voz de la experiencia.
+
+    -->
+
+    <send>
+        <endpoint>
+            <address uri='http://localhost:5000/products/df85b99e-3668-4af2-a1ad-5db3f39c0bec'/>
+        </endpoint>
+    </send>
+
+    <log level='custom' category='ERROR'>
+        <property name='ERROR' value='ESTE LOG DEBE SER INIVISIBLE' />
+    </log>
+
+</sequence>
