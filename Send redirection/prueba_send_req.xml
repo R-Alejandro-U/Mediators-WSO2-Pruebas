@@ -41,7 +41,7 @@
 
     <send>
         <endpoint>
-            <address uri='http://localhost:5000/products/df85b99e-3668-4af2-a1ad-5db3f39c0bec'/>
+            <address uri='https://pokeapi.co/api/v2/pokemon/charmander'/>
         </endpoint>
     </send>
 
