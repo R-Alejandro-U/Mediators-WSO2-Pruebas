@@ -1,0 +1,13 @@
+<sequence name='loopback_req'>
+    <log level='custom' category='INFO' >
+        <property name='INICIANDO_PRUEBA' value='Iniciando prueba de cortar flujo inSequence' />
+        <property name='CORTANDO_FLUJO' value='Cortando flujo, a continuación llendo a outSequence' />
+    </log>
+    <!-- 
+        A partir de aca se corta todo el fluejo y funciona como un tunel, esquivando todos los precesos, desde llegar al getaway hasta la llamada al back/api/lo que sea. directamente saltamos a la responds. Es decir evitamos todos los procesos habidos y por haber y saltamos hasta la response o outSequence  
+    -->
+    <loopback />
+    <log level='custom' category='ERROR'>
+        <property name='ERROR' value='ESTE LOG DEBE SER INIVISIBLE' />
+    </log>
+</sequence>
