@@ -1,9 +1,0 @@
-<sequence name="prueba_de_header">
-    <log level="custom" category="INFO">
-        <property name="PRIMERA PRUEBA" value="Iniciando prueba para introducir un header" />
-    </log>
-    <header name="Hola" value="Mundo!!!" scope="transport"/>
-    <log level="custom" category="INFO">
-        <property name="FIN DE LA PRUEBA" value="Terminando la primera prueba con éxito." />
-    </log>
-</sequence>
