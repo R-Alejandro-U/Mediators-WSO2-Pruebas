@@ -1,0 +1,6 @@
+<sequence name='loopback_res'>
+    <log level='custom' category='INFO' >
+        <property name='FINALIZANDO_PRUEBA' value='Se corto el flujo inSequence con éxito.' />
+        <property name='SALUDO' value='Saludo desde outSequence.' />
+    </log>
+</sequence>
