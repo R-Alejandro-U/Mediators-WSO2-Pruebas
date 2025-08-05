@@ -1,0 +1,23 @@
+<sequence name='filter'>
+    <!-- 
+        En este mediator lo que hacemos es evaluar, si es verdadero o falso, de ser verdadero entra en el then, de ser falso, en el else(Solo si se declara, sino ignora todo y sigue con el proximo mediator de ser verdadero.). En este caso estamos evaluando si existe el header "Hola". boolean = que va evaluar true o false, $trp = me permite capturar el valor, de un header con scope trnasport. En el archivo más voy a dejar una lista completa de expression y querys para xpath, ademas de profundizar más en los tipos de selectores como trp, o valores como boolean.  
+    -->
+    <filter xpath='boolean($trp:Hola)'>
+        <then>
+            <log level='custom' category='INFO'>
+                <property name='EXISTE_EL_HEADER' value='Existe el header Hola, y entramos en el scope de then, por ende es verdadero. Toma un pokemon por saludar al mundo.'/>
+            </log>
+            <property name='REST_URL_POSTFIX' action='remove' scope='axis2' />
+            <send>
+                <endpoint>
+                    <address uri='https://pokeapi.co/api/v2/pokemon/pikachu' />
+                </endpoint>
+            </send>
+        </then>
+        <else>
+            <log level='custom' category='INFO'>
+                <property name='INEXISTE_EL_HEADER' value='No existe el header Hola, y entramos en el scope de else, por ende es falso. Por no saludar al mundo, no mereces nada.'/>
+            </log>
+        </else>
+    </filter>
+</sequence>
