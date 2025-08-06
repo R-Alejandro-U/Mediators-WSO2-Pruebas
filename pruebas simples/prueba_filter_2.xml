@@ -1,0 +1,19 @@
+<sequence name='Filter_2'>
+    <!-- Definimos un valor para ser evaluado -->
+    <property name='valor' value='true' scope='default' type='boolean' />
+    <!-- source: optiene el valor regex: evalua el valor con una condición -->
+    <filter source='ctx:valor' regex='true'>
+        <!-- Si es verdadero -->
+        <then>
+            <log level='custom' category='INFO'>
+                <property name='Condicional' expression='concat("el valor fue: ", get-property("valor"))' />
+            </log>
+        </then>
+        <!-- Si es falso -->
+        <else>
+            <log level='custom' category='INFO'>
+                <property name='Condicional' expression='concat("el valor fue: ", get-property("valor"))' />
+            </log>
+        </else>
+    </filter>
+</sequence>

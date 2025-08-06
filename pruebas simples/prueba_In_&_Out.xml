@@ -1,0 +1,12 @@
+	<sequence name='In_Out'>
+    	<in>
+        	<log level='custom' category='INFO'>
+                <property name='IN' value='salundando antes de getaway' />
+            </log>
+    	</in>
+    	<out>
+		    <log level='custom' category='INFO'>
+                <property name='out' value='salundando despues de getaway' />
+            </log>
+    	</out>
+	</sequence>
