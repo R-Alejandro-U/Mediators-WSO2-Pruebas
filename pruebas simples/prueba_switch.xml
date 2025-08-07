@@ -7,6 +7,9 @@
             Case, sirve para declarar un caso condicional, esto quiere decir, que si se cumple la condición se ejecutaran todos los mediators que esten dentro de este caso. Si no se cumple, procedera a otro caso, y se ignorara este. Importante el orden de iteración es muy importante.
         -->
         <case regex='/users.*'>
+            <log level='custom' category='INFO'>
+                <property name='PRIMERO' value='Entramos en el primer case'/>
+            </log>
             <property name='REST_URL_POSTFIX' action='remove' scope='transport' />
             <send>
                 <endpoint>
@@ -15,6 +18,9 @@
             </send>
         </case>
         <case regex='/products.*'>
+            <log level='custom' category='INFO'>
+                <property name='SEGUNDO' value='Entramos en el segundo case'/>
+            </log>
             <property name='REST_URL_POSTFIX' action='remove' scope='transport' />
             <send>
                 <endpoint>
@@ -26,6 +32,9 @@
             Default: Solo se ejecutará si, ningun caso cumple con las condiciones. Es decir lo podemos considerar como si fuera un else, y cada caso un if. Si default, no se declará, simplemete se ignorará todo dentro del swich, y continuara con el flujo. 
         -->
         <default>
+            <log level='custom' category='INFO'>
+                <property name='DEFAULT' value='Entramos en el default'/>
+            </log>
             <property name='REST_URL_POSTFIX' action='remove' scope='transport' />
             <send>
                 <endpoint>
