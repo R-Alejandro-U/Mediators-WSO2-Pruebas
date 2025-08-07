@@ -7,7 +7,7 @@
         <property name='VALOR_DE_REST' expression="concat('Este es el valor de REST_URL_POSTFIX: ', get-property('axis2', 'REST_URL_POSTFIX'))" />
     </log>
 
-    <switch source='$ctx:REST_URL_POSTFIX'>
+    <switch source='$axis2:REST_URL_POSTFIX'>
         <!-- 
             Case, sirve para declarar un caso condicional, esto quiere decir, que si se cumple la condición se ejecutaran todos los mediators que esten dentro de este caso. Si no se cumple, procedera a otro caso, y se ignorara este. Importante el orden de iteración es muy importante.
         -->
