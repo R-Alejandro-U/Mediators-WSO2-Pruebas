@@ -11,7 +11,7 @@
         <!-- 
             Case, sirve para declarar un caso condicional, esto quiere decir, que si se cumple la condición se ejecutaran todos los mediators que esten dentro de este caso. Si no se cumple, procedera a otro caso, y se ignorara este. Importante el orden de iteración es muy importante.
         -->
-        <case regex='.*/users.*'>
+        <case regex='.*users.*'>
             <log level='custom' category='INFO'>
                 <property name='PRIMERO' value='Entramos en el primer case'/>
             </log>
@@ -22,7 +22,7 @@
                 </endpoint>
             </send>
         </case>
-        <case regex='.*/products.*'>
+        <case regex='.*products.*'>
             <log level='custom' category='INFO'>
                 <property name='SEGUNDO' value='Entramos en el segundo case'/>
             </log>
