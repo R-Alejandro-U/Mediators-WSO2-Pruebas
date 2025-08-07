@@ -10,7 +10,7 @@
             <log level='custom' category='INFO'>
                 <property name='PRIMERO' value='Entramos en el primer case'/>
             </log>
-            <property name='REST_URL_POSTFIX' action='remove' scope='transport' />
+            <property name='REST_URL_POSTFIX' action='remove' scope='axis2' />
             <send>
                 <endpoint>
                     <address uri='https://localhost:8243/e-comerce/1/products' />
@@ -21,7 +21,7 @@
             <log level='custom' category='INFO'>
                 <property name='SEGUNDO' value='Entramos en el segundo case'/>
             </log>
-            <property name='REST_URL_POSTFIX' action='remove' scope='transport' />
+            <property name='REST_URL_POSTFIX' action='remove' scope='axis2' />
             <send>
                 <endpoint>
                     <address uri='https://localhost:8243/e-comerce/1/products' />
@@ -35,7 +35,7 @@
             <log level='custom' category='INFO'>
                 <property name='DEFAULT' value='Entramos en el default'/>
             </log>
-            <property name='REST_URL_POSTFIX' action='remove' scope='transport' />
+            <property name='REST_URL_POSTFIX' action='remove' scope='axis2' />
             <send>
                 <endpoint>
                     <address uri='https://pokeapi.co/api/v2/pokemon/bulbasaur' />
