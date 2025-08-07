@@ -1,0 +1,37 @@
+<sequence name='swich'>
+    <!-- 
+        Aca comenzamos la iteración capturando un valor, en este caso, el path con la dirección al endpoint al que debe ir. Almacenamos en la propiedad source este valor, para despues ser evaluado con una condición. 
+    -->
+    <swich source='ctx:REST_URL_POSTFIX'>
+        <!-- 
+            Case, sirve para declarar un caso condicional, esto quiere decir, que si se cumple la condición se ejecutaran todos los mediators que esten dentro de este caso. Si no se cumple, procedera a otro caso, y se ignorara este. Importante el orden de iteración es muy importante.
+        -->
+        <case regex='/user.*'>
+            <property name='REST_URL_POSTFIX' action='remove' scope='transport' />
+            <send>
+                <endpoint>
+                    <address uri='https://localhost:8243/e-comerce/1/products' />
+                </endpoint>
+            </send>
+        </case>
+        <case regex='/products.*'>
+            <property name='REST_URL_POSTFIX' action='remove' scope='transport' />
+            <send>
+                <endpoint>
+                    <address uri='https://localhost:8243/e-comerce/1/products' />
+                </endpoint>
+            </send>
+        </case>
+        <!-- 
+            Default: Solo se ejecutará si, ningun caso cumple con las condiciones. Es decir lo podemos considerar como si fuera un else, y cada caso un if. Si default, no se declará, simplemete se ignorará todo dentro del swich, y continuara con el flujo. 
+        -->
+        <default>
+            <property name='REST_URL_POSTFIX' action='remove' scope='transport' />
+            <send>
+                <endpoint>
+                    <address uri='https://pokeapi.co/api/v2/pokemon/bulbasaur' />
+                </endpoint>
+            </send>
+        </default>
+    </swich>
+</sequence>
