@@ -1,8 +1,8 @@
-<sequence name='swich'>
+<sequence name='swich_prueba'>
     <!-- 
         Aca comenzamos la iteración capturando un valor, en este caso, el path con la dirección al endpoint al que debe ir. Almacenamos en la propiedad source este valor, para despues ser evaluado con una condición. 
     -->
-    <swich source='ctx:REST_URL_POSTFIX'>
+    <switch source='ctx:REST_URL_POSTFIX'>
         <!-- 
             Case, sirve para declarar un caso condicional, esto quiere decir, que si se cumple la condición se ejecutaran todos los mediators que esten dentro de este caso. Si no se cumple, procedera a otro caso, y se ignorara este. Importante el orden de iteración es muy importante.
         -->
@@ -33,5 +33,5 @@
                 </endpoint>
             </send>
         </default>
-    </swich>
+    </switch>
 </sequence>
