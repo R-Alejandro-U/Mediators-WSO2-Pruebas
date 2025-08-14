@@ -1,5 +1,7 @@
 <sequence name="logAllProperties">
+    <!-- Las unicas formas que encontre para obtener el metodo -->
     <log level="custom" category='INFO'>
         <property name="HTTP_METHOD" expression="$axis2:HTTP_METHOD"/>
+        <property name="HTTP_METHOD_" expression="get-property('axis2', 'HTTP_METHOD')"/>
     </log>
 </sequence>
