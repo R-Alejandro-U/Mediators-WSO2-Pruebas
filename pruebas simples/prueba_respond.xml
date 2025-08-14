@@ -3,7 +3,11 @@
         <property name='PRUEBA_RESPOND'  value='Iniciando la prueba' />
         <property name='PRUEBA_RESPOND_FIN'  value='Terminanado la prueba' />
     </log>
-    <respond/>
+    <!-- 
+        Si se pone un espacio en el cierre de la etiqueta no se ejecuta de forma correcta. 
+                            <response/> Bien || <response /> Mal 
+    -->
+    <respond />
     <log level='custom' category='ERROR'>
         <property name='ERROR' value='ESTE LOG DEBE SER INIVISIBLE' />
     </log>

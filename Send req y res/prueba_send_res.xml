@@ -5,7 +5,7 @@
     <!-- 
         En este send simplemente interceptamos la respuesta y respondemos con la nueva información del nuevo endpoint llamado en la request. IMPORTANTE, si no declaramos este send en el flujo outSequence, la llamada nunca se terminara y quedara cargando eternamente, es decir, lo que causaría un timeout y el cliente jamas recibira una respuesta, si salio bien o mal la petición.
     -->
-    <send />
+    <send/>
     <log level='custom' category='ERROR'>
         <property name='ERROR' value='ESTE LOG DEBE SER INIVISIBLE' />
     </log>

@@ -1,0 +1,24 @@
+<!-- 
+    Este mediator intercepta la petción y evalua si es un json o xml, y convierte transforma el valor al opuesto, xml < - - > json 
+-->
+<sequence name='invert'>
+    <log level='custom' category='INFO'>
+        <property name='INICIO_DE_PRUEBA' value='Iniciando la prueba de converción' />
+    </log>
+    <filter source='$trp:Content-Type' regex='.*json.*'>
+        <then>
+            <log level='custom' category='INFO'>
+                <property name='PRUEBA_TRANSFORMACIÓN' value='Iniciando la converción de json a xml' />
+            </log>
+            <property name='messageType' value='application/xml' scope='axis2' />
+            <respond/>
+        </then>
+        <else>
+            <log level='custom' category='INFO'>
+                <property name='PRUEBA_TRANSFORMACIÓN' value='Iniciando la converción de xml a json' />
+            </log>
+            <property name='messageType' value='application/json' scope='axis2' />
+            <respond/>
+        </else>
+    </filter>
+</sequence>
