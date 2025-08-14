@@ -3,7 +3,7 @@
         <property name='PRUEBA_RESPOND'  value='Iniciando la prueba' />
         <property name='PRUEBA_RESPOND_FIN'  value='Terminanado la prueba' />
     </log>
-    <respond />
+    <respond/>
     <log level='custom' category='ERROR'>
         <property name='ERROR' value='ESTE LOG DEBE SER INIVISIBLE' />
     </log>

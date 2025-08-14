@@ -1,0 +1,9 @@
+<sequence name='error'>
+    <makefault version="soap11" response='true'>
+        <code value="soap11Env:Client" xmlns:soap11Env="http://schemas.xmlsoap.org/soap/envelope/"/>
+        <reason value="Gandalf"/>
+        <detail>No pasaras</detail>
+    </makefault>
+    <property name='HTTP_SC' value='418' scope='axis2' />
+    <respond/>
+</sequence>

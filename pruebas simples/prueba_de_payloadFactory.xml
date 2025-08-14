@@ -1,0 +1,15 @@
+<sequence name="payloadFactory">
+    <log>
+        <property name="method" expression="get-property(REST_METHOD)" />
+    </log>
+    <payloadFactory media-type="json">
+        <format>{"tetera_id": $1, "contex": "Error de tetera", "message": $2}</format>
+        <args>
+            <arg expression="get-property('api.ut.userId')"/>
+            <arg value="Una tetera no puedo pasar por aca como usuario"/>
+        </args>
+    </payloadFactory>
+    <property name="HTTP_SC" value="418" scope="axis2"/>
+    <respond/>
+    <drop/>
+</sequence>

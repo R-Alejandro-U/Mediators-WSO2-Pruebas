@@ -1,0 +1,5 @@
+<sequence name="logAllProperties">
+    <log level="custom" category='INFO'>
+        <property name="HTTP_METHOD" expression="$axis2:HTTP_METHOD"/>
+    </log>
+</sequence>
